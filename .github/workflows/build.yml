@@ -87,4 +87,3 @@ jobs:
           path: openwrt/bin/packages/**/*.apk
           if-no-files-found: error
           retention-days: 7
-```
