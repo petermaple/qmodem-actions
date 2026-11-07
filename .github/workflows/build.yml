@@ -72,14 +72,20 @@ jobs:
         run: |
           cd openwrt
           make toolchain/install -j2 V=s
+          
+      # 9. 编译目标平台（包括 Linux 内核）
+      - name: Build target
+        run: |
+          cd openwrt
+          make target/compile -j2 V=s
 
-      # 9. 编译 QModem
+      # 10. 编译 QModem
       - name: Compile QModem
         run: |
           cd openwrt
           make package/feeds/qmodem/qmodem/compile -j2 V=s
 
-      # 10. 上传编译好的 APK
+      # 11. 上传编译好的 APK
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
